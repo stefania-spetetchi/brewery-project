@@ -11,6 +11,7 @@ import Header from "./components/header";
 import BreweriesIndex from "./components/breweries-index";
 import BreweryShow from "./components/brewery-show";
 import reducers from "./reducers";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const createStoreWithMiddleWare = applyMiddleware(promise)(createStore);
 
