@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-// import { fetchBreweries } from '../actions';
 import _ from "lodash";
-import { useEffect } from "react";
+import './style.css';
 import { fetchBreweries } from "../actions";
+import { useEffect } from "react";
+import SearchValue from "./search-form.js";
 
 const BreweriesIndex = () => {
   const breweries = useSelector((state) => state.breweries);
@@ -16,11 +17,10 @@ const BreweriesIndex = () => {
 
   function renderBreweries() {
     if (!_.isEmpty(breweries)) {
-
       return breweries.map((brewery) => (
-        <li className="list-group-item" key={brewery.id}>
-          <p>{brewery.name}</p>
-        </li>
+        <div className="breweries-layout col-md-3">
+          <div className="brewery" key={brewery.id}>{brewery.name}</div>
+        </div>
       ));
     }
     return <div>No breweries</div>
@@ -28,8 +28,9 @@ const BreweriesIndex = () => {
 
   return (
     <div>
+      <SearchValue fetchBreweries={fetchBreweries} />
       <h4>Breweries</h4>
-      <ul className="list-group">{renderBreweries()}</ul>
+      <div className="main-layout">{renderBreweries()}</div>
     </div>
   );
 }
