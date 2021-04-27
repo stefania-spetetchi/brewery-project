@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
+
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 import './style.css';
+
 import { fetchBreweries } from "../actions";
 import { useEffect } from "react";
 import SearchValue from "./search-form.js";
@@ -18,8 +23,9 @@ const BreweriesIndex = () => {
   function renderBreweries() {
     if (!_.isEmpty(breweries)) {
       return breweries.map((brewery) => (
+
         <div className="breweries-layout col-md-3">
-          <div className="brewery" key={brewery.id}>{brewery.name}</div>
+          <Link to={`breweries/${brewery.id}`} className="brewery" key={brewery.id}>{brewery.name}</Link>
         </div>
       ));
     }
