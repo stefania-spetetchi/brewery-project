@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 // import { fetchBreweries } from '../actions';
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchBreweries } from "../actions";
 
@@ -19,7 +20,7 @@ const BreweriesIndex = () => {
 
       return breweries.map((brewery) => (
         <li className="list-group-item" key={brewery.id}>
-          <p>{brewery.name}</p>
+          <Link to={`breweries/${brewery.id}`}>{brewery.name}</Link>
         </li>
       ));
     }
