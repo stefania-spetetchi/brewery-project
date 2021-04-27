@@ -1,13 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
-
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-
 import './style.css';
-
 import { fetchBreweries } from "../actions";
-import { useEffect } from "react";
 import SearchValue from "./search-form.js";
 
 const BreweriesIndex = () => {
@@ -25,7 +21,10 @@ const BreweriesIndex = () => {
       return breweries.map((brewery) => (
 
         <div className="breweries-layout col-md-3">
-          <Link to={`breweries/${brewery.id}`} className="brewery" key={brewery.id}>{brewery.name}</Link>
+          <div className="brewery">
+            <Link to={`breweries/${brewery.id}`} key={brewery.id}>{brewery.name}</Link>
+            <div>{brewery.type}</div>
+          </div>
         </div>
       ));
     }
@@ -36,6 +35,11 @@ const BreweriesIndex = () => {
     <div>
       <SearchValue fetchBreweries={fetchBreweries} />
       <h4>Breweries</h4>
+      <div className="btn-group dropright">
+        <button type="button" className="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter by Type</button>
+        <input type="text center" id="search-query" className="text-center input-group input-group-sm mb-3" placeholder="start the filter"></input>
+
+      </div>
       <div className="main-layout">{renderBreweries()}</div>
     </div>
   );
