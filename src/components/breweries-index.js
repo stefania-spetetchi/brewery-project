@@ -1,17 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import _ from "lodash";
-
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import './style.css';
-
 import { fetchBreweries } from "../actions";
-//import { useEffect } from "react";
 import SearchValue from "./search-form.js";
+import FilterQuery from "./filter-query";
+import Breweries from "./breweries";
+
 
 const BreweriesIndex = () => {
   const breweries = useSelector((state) => state.breweries);
+  const [query, setQuery] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,24 +17,26 @@ const BreweriesIndex = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchBreweries]);
 
-
-  function renderBreweries() {
-    if (!_.isEmpty(breweries)) {
-      return breweries.map((brewery) => (
-
-        <div className="breweries-layout col-md-3">
-          <Link to={`breweries/${brewery.id}`} className="brewery" key={brewery.id}>{brewery.name}</Link>
-        </div>
-      ));
+  let filterBreweries = breweries.filter((brewery) => {
+    if (brewery.type) {
+      return brewery.type.includes(query);
     }
-    return <div>No breweries</div>
-  }
+
+    return false;
+  });
+
+  // console.log(filterBreweries);
 
   return (
     <div>
       <SearchValue fetchBreweries={fetchBreweries} />
       <h4>Breweries</h4>
-      <div className="main-layout">{renderBreweries()}</div>
+      <FilterQuery query={query} setQuery={setQuery} />
+
+      <div>
+        <div className="main-layout">
+          <Breweries breweries={filterBreweries} /></div>
+      </div>
     </div>
   );
 }

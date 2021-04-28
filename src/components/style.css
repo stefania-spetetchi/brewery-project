@@ -13,8 +13,33 @@
   border-width:  1px;
   border-style: dashed;
   border-color: orange ;
-  margin: 20px auto;
+  margin: 17px auto;
   height: 150px;
-  vertical-align: middle;
-
+  vertical-align: middle; 
 }
+
+/* .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; 
+}
+
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: red;
+  color: blue;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+
+  position: absolute;
+  z-index: 1;
+}
+
+
+.tooltiptext:hover  {
+  visibility: visible;
+}  */
