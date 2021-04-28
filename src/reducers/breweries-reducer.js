@@ -1,4 +1,4 @@
-import { FETCH_BREWERIES, FETCH_BREWERY } from "../actions";
+import { FETCH_BREWERIES, FETCH_BREWERY, ADD_COMMENT } from "../actions";
 
 const defaultState = [
   {
@@ -421,6 +421,8 @@ const breweryReducer = function (state = defaultState, action) {
       });
       case FETCH_BREWERY:
         return state;
+      case ADD_COMMENT:
+        return  [action.payload, ...state];
     default: return state;
   }
 }

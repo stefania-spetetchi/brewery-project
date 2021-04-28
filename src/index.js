@@ -10,6 +10,7 @@ import promise from "redux-promise";
 import Header from "./components/header";
 import BreweriesIndex from "./components/breweries-index";
 import BreweryShow from "./components/brewery-show";
+import AddComment from "./components/add-comment";
 import reducers from "./reducers";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Header>
         <Switch>
           <Route exact path='/' component={BreweriesIndex} />
+          <Route path='/breweries/:id/addComment' component={AddComment} />
           <Route path='/breweries/:id' component={BreweryShow} />
         </Switch>
       </Header>
