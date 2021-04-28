@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchBreweries } from '../actions';
+// import { fetchBreweries } from '../actions';
 import { useDispatch } from "react-redux";
 
 const SearchValue = () => {
