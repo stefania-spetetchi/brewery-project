@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import './style.css';
 
 import { fetchBreweries } from "../actions";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import SearchValue from "./search-form.js";
 
 const BreweriesIndex = () => {

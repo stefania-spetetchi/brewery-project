@@ -1,5 +1,7 @@
 export const FETCH_BREWERIES = "FETCH_BREWERIES";
 export const FETCH_BREWERY = "FETCH_BREWERY";
+export const ADD_COMMENT = "ADD_COMMENT";
+
 
 const breweryData = [
   {
@@ -421,3 +423,12 @@ export function fetchBreweries() {
 //     payload: breweryData
 //   }
 // }
+
+export function addComment(values) {
+  const comment = Object.assign({}, values)
+
+  return {
+    type: ADD_COMMENT,
+    payload: comment,
+  }
+}
