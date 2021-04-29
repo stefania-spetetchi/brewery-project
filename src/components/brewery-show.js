@@ -33,7 +33,7 @@ const BreweryShow = (props) => {
 
   function renderComments() {
     return (
-      <div>
+      <div className="text">
         <h3>Comments</h3>
         <hr></hr>
         {comments.map((comment, index) => (
@@ -48,7 +48,7 @@ const BreweryShow = (props) => {
   }
 
   return (
-    <div>
+    <div className="text">
       <Link to="/">Back</Link>
       {renderBrewery()}
       <br></br>
