@@ -1,33 +1,30 @@
-import { useSelector } from "react-redux";
-// import { fetchBreweries, fetchBrewery } from "../actions";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-//import breweryReducer from "../reducers/breweries-reducer";
-//import breweryReducer from "../reducers/breweries-reducer";
+import { fetchBreweryById } from '../actions';
 
 const BreweryShow = (props) => {
-  const brewery = useSelector(({ breweries }) => {
-    return breweries.find((brewery) => {
-      return brewery.id === parseInt(props.match.params.id);
-    });
-  });
+  const breweryId = parseInt(props.match.params.id);
+  const dispatch = useDispatch();
+  const brewery = useSelector(({ breweries }) => breweries.find(brewery => brewery.id === breweryId));
 
-  const comments = [
-    {
-      user: "Ian",
-      comment: "I had a great time"
-    }
-  ];
+  useEffect(() => {
+    dispatch(fetchBreweryById(breweryId));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchBreweryById]);
+
+  const comments = useSelector(({ comments }) => comments.filter(comment => comment.breweryId === brewery.id));
 
   function renderBrewery() {
     return (
       <div>
-        <h1>{brewery.name}</h1>
+        <h1>{brewery?.name}</h1>
         <hr></hr>
-        <p>Type: {brewery.type}</p>
-        <h4>{brewery.address}</h4>
-        <h4>{brewery.city}, {brewery.state}</h4>
-        <h4>{brewery.phone}</h4>
-        <h5><a href={brewery.website}>Website</a></h5>
+        <p>Type: {brewery?.type}</p>
+        <h4>{brewery?.address}</h4>
+        <h4>{brewery?.city}, {brewery?.state} {brewery?.zipCode}</h4>
+        <h4>{brewery?.phone}</h4>
+        <h5><a href={brewery?.website}>Website</a></h5>
       </div>
     )
   }
@@ -37,9 +34,13 @@ const BreweryShow = (props) => {
       <div>
         <h3>Comments</h3>
         <hr></hr>
-        <h5>{comments[0].user}</h5>
-        <p>{comments[0].comment}</p>
-        <hr></hr>
+        {comments.map((comment, index) => (
+          <div key={index}>
+            <h5>{comment.user}</h5>
+            <p>{comment.comment}</p>
+            <hr></hr>
+          </div>
+        ))}
       </div>
     )
   }
@@ -52,7 +53,7 @@ const BreweryShow = (props) => {
       <br></br>
       <br></br>
       {renderComments()}
-      <Link to={`${brewery.id}/addComment`} className="btn btn-primary">Add Comment</Link>
+      <Link to={`${brewery?.id}/addComment`} className="btn btn-primary">Add Comment</Link>
     </div>
   )
 }

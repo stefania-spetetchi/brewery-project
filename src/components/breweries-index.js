@@ -25,8 +25,6 @@ const BreweriesIndex = () => {
     return false;
   });
 
-  // console.log(filterBreweries);
-
   return (
     <div>
       <SearchValue fetchBreweries={fetchBreweries} />

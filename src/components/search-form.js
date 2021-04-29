@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-// import { fetchBreweries } from '../actions';
-import { useDispatch } from "react-redux";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-const SearchValue = () => {
-  const [value, setValue] = useState('');
+const SearchValue = ({ fetchBreweries }) => {
   const dispatch = useDispatch();
+  const [value, setValue] = useState('apex');
+  const handleSearchClick = () => {
+    dispatch(fetchBreweries(value));
+  }
 
   return (
     <div className="col text-center">
@@ -18,6 +20,7 @@ const SearchValue = () => {
         <br />
         <button
           className="btn btn-outline-info"
+          onClick={handleSearchClick}
         >Search</button>
       </div>
     </div>

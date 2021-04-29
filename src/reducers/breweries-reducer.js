@@ -1,4 +1,4 @@
-import { FETCH_BREWERIES, FETCH_BREWERY, ADD_COMMENT } from "../actions";
+import { FETCH_BREWERIES, FETCH_BREWERY } from "../actions";
 
 const defaultState = [
   {
@@ -403,27 +403,29 @@ const defaultState = [
   }
 ]
 
+const cleanBreweries = breweries => {
+  return breweries.map(function (b) {
+    return {
+      id: b.id || '',
+      name: b.name || '',
+      type: b.brewery_type || '',
+      address: b.street || '',
+      city: b.city || '',
+      state: b.state || '',
+      zipCode: b.postal_code || '',
+      phone: b.phone || '',
+      website: b.website_url || '',
+    }
+  });
+}
+
 const breweryReducer = function (state = defaultState, action) {
   switch (action.type) {
     case FETCH_BREWERIES:
-      return action.payload.map(function (b) {
-        return {
-          id: b.id || '',
-          name: b.name || '',
-          type: b.brewery_type || '',
-          address: b.street || '',
-          city: b.city || '',
-          state: b.state || '',
-          ZipCode: b.postal_code || '',
-          phone: b.phone || '',
-          website: b.website_url || '',
-        }
-      });
-      case FETCH_BREWERY:
-        return state;
-      case ADD_COMMENT:
-        return  [action.payload, ...state];
-    default: return state;
+      return cleanBreweries(action.payload);
+    case FETCH_BREWERY:
+      return cleanBreweries([action.payload]);
+    default: return cleanBreweries(state);
   }
 }
 

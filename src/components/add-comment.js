@@ -21,10 +21,12 @@ const AddComment = (props) => {
 
     dispatch(
       addComment({
+        breweryId: brewery.id,
         user,
         comment,
       })
     );
+     
 
     history.push(`/breweries/${brewery.id}`);
   }
