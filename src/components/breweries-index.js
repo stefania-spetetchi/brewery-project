@@ -6,7 +6,6 @@ import SearchValue from "./search-form.js";
 import FilterQuery from "./filter-query";
 import Breweries from "./breweries";
 
-
 const BreweriesIndex = () => {
   const breweries = useSelector((state) => state.breweries);
   const [query, setQuery] = useState('');
@@ -30,7 +29,7 @@ const BreweriesIndex = () => {
   return (
     <div>
       <SearchValue fetchBreweries={fetchBreweries} />
-      <h4>Breweries</h4>
+      <h4 className="filterResults"><strong>Breweries Results:</strong></h4>
       <FilterQuery query={query} setQuery={setQuery} />
 
       <div>
