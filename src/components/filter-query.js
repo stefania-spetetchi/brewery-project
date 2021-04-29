@@ -1,8 +1,6 @@
 import React from 'react';
 
 const FilterQuery = (props) => {
-  console.log(props.query);
-
   return (
     <div>
       <input
