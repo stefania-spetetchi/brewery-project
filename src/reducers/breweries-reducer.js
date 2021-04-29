@@ -417,12 +417,14 @@ const breweryReducer = function (state = defaultState, action) {
           ZipCode: b.postal_code || '',
           phone: b.phone || '',
           website: b.website_url || '',
+          longitude: b.longitude || '',
+          latitude: b.latitude || ''
         }
       });
-      case FETCH_BREWERY:
-        return state;
-      case ADD_COMMENT:
-        return  [action.payload, ...state];
+    case FETCH_BREWERY:
+      return state;
+    case ADD_COMMENT:
+      return [action.payload, ...state];
     default: return state;
   }
 }
