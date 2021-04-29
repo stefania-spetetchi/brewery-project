@@ -9,10 +9,14 @@ const Breweries = (props) => {
         >
           <Link to={`breweries/${brewery.id}`}>{brewery.name}</Link>
           <div>
-            <span className="tooltiptext">
-              {brewery.city}, {brewery.state} -
-              {brewery.type}
+            <span className="tooltiptext" >
+              <span className="iconify" data-icon="cil:flag-alt" data-inline="false"></span>
+              <br />
+              {brewery.city}, {brewery.state} <br />
+              <strong>Type:</strong> {brewery.type}
             </span>
+            <br />
+            <span className="url">{brewery.website}</span>
           </div>
         </div>
       </div>
@@ -20,5 +24,6 @@ const Breweries = (props) => {
   }
   return <div>No breweries</div>
 }
+
 
 export default Breweries;

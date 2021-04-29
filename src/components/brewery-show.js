@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchBreweryById } from '../actions';
+import MapComponent from "./google-maps";
+
 
 const BreweryShow = (props) => {
   const breweryId = parseInt(props.match.params.id);
@@ -53,7 +55,9 @@ const BreweryShow = (props) => {
       <br></br>
       <br></br>
       {renderComments()}
-      <Link to={`${brewery?.id}/addComment`} className="btn btn-primary">Add Comment</Link>
+      <Link to={`${brewery.id}/addComment`} className="btn btn-primary">Add Comment</Link>
+      <hr />
+      <MapComponent latitude={brewery.latitude} longitude={brewery.longitude} />
     </div>
   )
 }
