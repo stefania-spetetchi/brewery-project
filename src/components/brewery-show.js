@@ -12,7 +12,7 @@ const BreweryShow = (props) => {
 
   useEffect(() => {
     dispatch(fetchBreweryById(breweryId));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchBreweryById]);
 
   const comments = useSelector(({ comments }) => comments.filter(comment => comment.breweryId === brewery.id));
@@ -55,9 +55,9 @@ const BreweryShow = (props) => {
       <br></br>
       <br></br>
       {renderComments()}
-      <Link to={`${brewery.id}/addComment`} className="btn btn-primary">Add Comment</Link>
+      <Link to={`${brewery?.id}/addComment`} className="btn btn-primary">Add Comment</Link>
       <hr />
-      <MapComponent latitude={brewery.latitude} longitude={brewery.longitude} />
+      <MapComponent latitude={brewery?.latitude} longitude={brewery?.longitude} />
     </div>
   )
 }

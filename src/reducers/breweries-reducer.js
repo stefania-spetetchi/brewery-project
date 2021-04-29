@@ -415,6 +415,8 @@ const cleanBreweries = breweries => {
       zipCode: b.postal_code || '',
       phone: b.phone || '',
       website: b.website_url || '',
+      latitude: b.latitude || '',
+      longitude: b.longitude || ''
     }
   });
 }
