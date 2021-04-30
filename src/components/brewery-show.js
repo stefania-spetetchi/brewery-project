@@ -26,7 +26,7 @@ const BreweryShow = (props) => {
     return null;
   }
 
-  const phoneNumber = formatPhoneNumber(brewery.phone);
+  const phoneNumber = formatPhoneNumber(brewery?.phone);
 
   function renderBrewery() {
     return (
@@ -43,7 +43,7 @@ const BreweryShow = (props) => {
   }
 
   function renderComments() {
-    if (comments.length > 0) { 
+    if (comments.length > 0) {
       return (
         <div>
           <h3>Comments</h3>
@@ -56,7 +56,8 @@ const BreweryShow = (props) => {
             </div>
           ))}
         </div>
-    )}
+      )
+    }
     return <div>
       <h3>Comments</h3>
       <hr></hr>
