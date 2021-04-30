@@ -65,7 +65,7 @@ const BreweryShow = (props) => {
   }
 
   return (
-    <div>
+    <div className="text">
       <Link to="/">Back</Link>
       {renderBrewery()}
       <br></br>

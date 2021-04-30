@@ -51,7 +51,7 @@ color: beige;
 } 
 
 .heading {
-  font-family: "Krona One", sans-serif ;
+  font-family: "Quicksand", sans-serif ;
   margin: 30px;
   padding: 15px;
   color: beige;
@@ -75,6 +75,10 @@ color: beige;
 }
 
 .text-center {
+  font-family: "Roboto", sans-serif ;
+}
+
+.text {
   font-family: "Roboto", sans-serif ;
 }
 
