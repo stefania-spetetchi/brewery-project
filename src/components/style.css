@@ -1,15 +1,18 @@
+#root {
+  background-color: #e5e5e5;
+}
 
 .main-layout {
   border-style: dotted;
   border-width: 2px;;
-  border-color: rgb(21, 21, 51);
+  border-color:#14213d;
   display: flex;
   flex-wrap: wrap;
   margin: 10px; 
 }
 
 .iconify {
-  color: orange;
+  color: #14213d;
 }
 
 .map {
@@ -25,43 +28,55 @@
   font-family: "Roboto", sans-serif ;
   
 }
+
+.input-group {
+background-color: #e5e5e5;
+}
+
+.filterQuery {
+  background-color: #e5e5e5 !important;
+}
+
 .filterResults {
-  /* border: solid;
-  border-color:rgb(21, 21, 51);
-  border-width:  2px; */
   margin: 10px; 
   padding: 10px;
   font-family: "Roboto", sans-serif ;
-  /* background-color: rgb(243, 243, 233); */
 }
 
 .brewery {
   border: solid;
   border-width:  1px;
   border-style: solid;
-  border-color: rgb(21, 21, 51);
-  background-color: rgb(241, 241, 233);
+  border-color:#14213d;
+  background-color:#fca311;
   margin: 17px auto;
   height: 150px;
   vertical-align: middle; 
 }
 
 a {
-color: beige;
+  margin: 5px 0px;
+color: #14213d !important;
+font-weight: 900;
 } 
+
+.btn-outline {
+color: #e5e5e5;
+border-color: #14213d ;
+}
 
 .heading {
   font-family: "Quicksand", sans-serif ;
-  margin: 30px;
+  margin: 0px 30px 30px 30px;
   padding: 15px;
-  color: beige;
-  background-color: rgb(7, 49, 7);
+  color: #e5e5e5;
+  background-color: #14213d;
 }
 
 .search {
   display: inline-flex;
   align-content: center;
-  margin: 0px 15px 0px 15px
+  
 }
 
 .filter {
@@ -71,7 +86,7 @@ color: beige;
   padding: 5px;
   border: dotted;
   border-width: 2px;
-  border-color: maroon
+  border-color: #e5e5e5;
 }
 
 .text-center {
@@ -83,35 +98,12 @@ color: beige;
 }
 
 .url {
-  color: rgb(241, 241, 233);
+  visibility: hidden;
+  color:#e5e5e5;
 }
 
 .url:hover {
-  color: red;
-}
-
-/* .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; 
-}
-
-
-.tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: red;
-  color: blue;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-
-  position: absolute;
-  z-index: 1;
-}
-
-
-.tooltiptext:hover  {
   visibility: visible;
-}  */
+  color: #26495c;
+  font-weight: 500;
+}
