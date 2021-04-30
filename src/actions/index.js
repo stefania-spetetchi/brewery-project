@@ -7,7 +7,7 @@ export const ADD_COMMENT = "ADD_COMMENT";
 const ROOT_URL = "https://api.openbrewerydb.org/breweries"
 
 export async function fetchBreweries(city = 'raleigh') {
-  const request = await axios.get(`${ROOT_URL}?by_city=${encodeURIComponent(city)}`);
+  const request = await axios.get(`${ROOT_URL}?per_page=50&by_city=${encodeURIComponent(city)}`);
 
   return {
     type: FETCH_BREWERIES,

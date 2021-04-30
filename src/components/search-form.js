@@ -8,11 +8,18 @@ const SearchValue = ({ fetchBreweries }) => {
     dispatch(fetchBreweries(value));
   }
 
+  const handleEnterPress = (e) => {
+  if (e.keyCode === 13) {
+    handleSearchClick();
+    }
+  };
+
   return (
     <div className="col text-center">
       <div className="text-xs search ">
         <input
           value={value}
+          onKeyDown={handleEnterPress}
           onChange={event => {
             setValue(event.target.value)
           }}
