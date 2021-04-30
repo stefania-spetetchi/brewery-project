@@ -83,12 +83,13 @@ color: beige;
 }
 
 .url {
-  visibility: hidden;
+  color: rgb(241, 241, 233);
 }
 
 .url:hover {
-  visibility: visible;
+  color: red;
 }
+
 /* .tooltip {
   position: relative;
   display: inline-block;

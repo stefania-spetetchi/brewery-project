@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 const SearchValue = ({ fetchBreweries }) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState('apex');
+  const [value, setValue] = useState('Raleigh');
   const handleSearchClick = () => {
     dispatch(fetchBreweries(value));
   }
