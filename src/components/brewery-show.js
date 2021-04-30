@@ -17,6 +17,17 @@ const BreweryShow = (props) => {
 
   const comments = useSelector(({ comments }) => comments.filter(comment => comment.breweryId === brewery.id));
 
+  function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return `(${match[1]}) ${match[2]}-${match[3]}`;
+    }
+    return null;
+  }
+
+  const phoneNumber = formatPhoneNumber(brewery.phone);
+
   function renderBrewery() {
     return (
       <div>
@@ -25,26 +36,32 @@ const BreweryShow = (props) => {
         <p>Type: {brewery?.type}</p>
         <h4>{brewery?.address}</h4>
         <h4>{brewery?.city}, {brewery?.state} {brewery?.zipCode}</h4>
-        <h4>{brewery?.phone}</h4>
+        <h4>{phoneNumber}</h4>
         <h5><a href={brewery?.website}>Website</a></h5>
       </div>
     )
   }
 
   function renderComments() {
-    return (
-      <div>
-        <h3>Comments</h3>
-        <hr></hr>
-        {comments.map((comment, index) => (
-          <div key={index}>
-            <h5>{comment.user}</h5>
-            <p>{comment.comment}</p>
-            <hr></hr>
-          </div>
-        ))}
-      </div>
-    )
+    if (comments.length > 0) { 
+      return (
+        <div>
+          <h3>Comments</h3>
+          <hr></hr>
+          {comments.map((comment, index) => (
+            <div key={index}>
+              <h5>{comment.user}</h5>
+              <p>{comment.comment}</p>
+              <hr></hr>
+            </div>
+          ))}
+        </div>
+    )}
+    return <div>
+      <h3>Comments</h3>
+      <hr></hr>
+      <p>No comments to show</p>
+    </div>
   }
 
   return (

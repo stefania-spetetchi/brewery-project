@@ -25,8 +25,6 @@ export async function fetchBreweryById(id) {
 }
 
 export function addComment(values) {
-  // const comment = [{values}]
-
   return {
     type: ADD_COMMENT,
     payload: values
