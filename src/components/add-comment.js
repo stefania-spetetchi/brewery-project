@@ -6,7 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 const AddComment = (props) => {
   const [user, setUser] = useState('');
   const [comment, setComment] = useState('');
-
+  
   const brewery = useSelector(({ breweries }) => {
     return breweries.find((brewery) => {
       return brewery.id === parseInt(props.match.params.id);
@@ -19,18 +19,16 @@ const AddComment = (props) => {
   const handleCommentSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(
-      addComment({
-        breweryId: brewery.id,
-        user,
-        comment,
-      })
-    );
-     
-
-    history.push(`/breweries/${brewery.id}`);
-  }
-  
+      dispatch(
+        addComment({
+          breweryId: brewery.id,
+          user,
+          comment,
+        })
+      );
+      history.push(`/breweries/${brewery.id}`);
+  };
+   
   return (
     <form onSubmit={handleCommentSubmit}>
       <Link to={`/breweries/${brewery.id}`}>Back</Link>
@@ -38,6 +36,7 @@ const AddComment = (props) => {
       <div className="form-group">
         <label>Your Name</label>
         <input
+          required
           className="form-control"
           value={user}
           onChange={(e) => setUser(e.target.value)}
@@ -47,6 +46,7 @@ const AddComment = (props) => {
       <div className="form-group">
         <label>Comment</label>
         <textarea
+          required
           type="text-area"
           className="form-control"
           value={comment}
