@@ -59,7 +59,7 @@ const BreweryShow = (props) => {
       )
     }
     return <div>
-      <h3>Comments</h3>
+      <h3>Comments:</h3>
       <hr></hr>
       <p>No comments to show</p>
     </div>
@@ -73,8 +73,9 @@ const BreweryShow = (props) => {
       <br></br>
       <br></br>
       {renderComments()}
-      <Link to={`${brewery?.id}/addComment`} className="btn btn-primary">Add Comment</Link>
+      <Link to={`${brewery?.id}/addComment`} className="btn btn-primary link-text">Add Comment</Link>
       <hr />
+      <h3>Location:</h3>
       <MapComponent latitude={brewery?.latitude} longitude={brewery?.longitude} />
     </div>
   )

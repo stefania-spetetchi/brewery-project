@@ -7,6 +7,7 @@ const Breweries = (props) => {
       <div className="breweries-layout col-md-3" key={brewery.id}>
         <div className="brewery"
         >
+          <br />
           <Link to={`breweries/${brewery.id}`}>{brewery.name}</Link>
           <div>
             <span className="tooltiptext" >
