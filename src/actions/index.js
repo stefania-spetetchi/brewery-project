@@ -7,11 +7,13 @@ export const ADD_COMMENT = "ADD_COMMENT";
 const ROOT_URL = "https://api.openbrewerydb.org/breweries"
 
 export async function fetchBreweries(city = 'raleigh') {
-  const request = await axios.get(`${ROOT_URL}?per_page=50&by_city=${encodeURIComponent(city)}`);
+  const requestByCity = await axios.get(`${ROOT_URL}?per_page=50&by_city=${encodeURIComponent(city)}`);
+  const requestByName = await axios.get(`${ROOT_URL}?per_page=50&by_name=${encodeURIComponent(city)}`);
+  const combinedRequestData = [...requestByCity.data, ...requestByName.data].filter((item, key, self) => self.findIndex(b => b.id === item.id) === key)
 
   return {
     type: FETCH_BREWERIES,
-    payload: request.data
+    payload: combinedRequestData
   }
 }
 

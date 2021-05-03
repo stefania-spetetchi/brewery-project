@@ -5,7 +5,7 @@ const initialState = []
 const commentsReducer = function (state = initialState, action) {
   switch (action.type) {
     case ADD_COMMENT:
-      return [...initialState, action.payload];
+      return [...state, action.payload];
     default: return state;
   }
 }

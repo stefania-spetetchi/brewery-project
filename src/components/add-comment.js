@@ -12,7 +12,7 @@ const AddComment = (props) => {
       return brewery.id === parseInt(props.match.params.id);
     });
   });
-
+  
   const dispatch = useDispatch();
   const history = useHistory();
 
